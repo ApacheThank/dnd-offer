@@ -1,6 +1,5 @@
-<?php
-$offers = $block->getItems();
-?>
+<?php $offers = $block->getItems(); ?>
+<?php if($offers->count()>0): ?>
 <div class="card-slider no-display">
     <?php foreach ($offers as $offer): ?>
         <div class="offer-slide">
@@ -29,9 +28,4 @@ $offers = $block->getItems();
         });
     });
 </script>
-
-<style>
-
-</style>
-
-
+<?php endif; ?>

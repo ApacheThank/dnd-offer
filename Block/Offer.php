@@ -32,9 +32,9 @@ class Offer extends \Magento\Framework\View\Element\Template
     {   
         $currentDate = $this->dateTime->gmtDate();
         $offerCollection = $this->offerCollection->create();
+        $offerCollection->addFieldToFilter('category_ids', ['finset' => $this->getCurrentCategoryId()]);
         $offerCollection->addFieldToFilter('date_start', ['lteq' => $currentDate]);
         $offerCollection->addFieldToFilter('date_end', ['gteq' => $currentDate]);
-        $offerCollection->addFieldToFilter('category_ids', ['finset' => $this->getCurrentCategoryId()]);
         return $offerCollection;
     }
 

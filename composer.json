@@ -11,6 +11,7 @@
       "homepage": "https://khasanov.fr"
     }
   ],
+  "minimum-stability": "dev",
   "require": {
     "php": ">=7.4",
     "magento/framework": "103.0.*",
