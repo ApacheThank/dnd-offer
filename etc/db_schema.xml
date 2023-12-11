@@ -1,10 +1,4 @@
 <?xml version="1.0"?>
-<!--
-/**
-* @author Amasty Team
-* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
-* @package Cookie Consent (GDPR) for Magento 2
-*/-->
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
 <table name="offers" resource="default" engine="innodb" comment="Offers Table">
     <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="Id"/>
@@ -21,6 +15,5 @@
     <constraint xsi:type="unique" referenceId="OFFERS_NAME">
       <column name="name"/>
     </constraint>
-    <!-- <constraint xsi:type="foreign" referenceId="AMASTY_GDPRCOOKIE_COOKIE_GROUP_ID_AMASTY_GDPRCOOKIE_GROUP_ID" table="amasty_gdprcookie_cookie" column="group_id" referenceTable="amasty_gdprcookie_group" referenceColumn="id" onDelete="SET NULL"/> -->
   </table>
 </schema>

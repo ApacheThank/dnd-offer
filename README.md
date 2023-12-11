@@ -34,6 +34,9 @@ php bin/magento cache:flush
 
 This section will describe how the module is designed. So let me start with:
 
+![Alt text](image-1.png)
+
+![Alt text](image-2.png)
 ## Export Modes
 
 This module allows you to create any database export profiles you wish, however I've called them

@@ -12,24 +12,7 @@ use Magento\Store\Model\StoreManagerInterface;
 use Dnd\Offer\Model\ImageUploader;
 
 class Upload extends \Magento\Backend\App\Action 
-{
-
-    /**
-     *
-     * @var UploaderFactory
-     */
-    protected $uploaderFactory;
-  
-    /** 
-     * @var Filesystem\Directory\WriteInterface 
-     */
-    protected $mediaDirectory;
-    
-    /**
-     * @var StoreManagerInterface
-     */
-    protected $storeManager;
-  
+{  
     public function __construct(
       Context $context,
       ImageUploader $imageUploader

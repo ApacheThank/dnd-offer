@@ -1,9 +1,4 @@
 <?php
-/**
-* @author Amasty Team
-* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
-* @package Cookie Consent (GDPR) for Magento 2
-*/
 
 namespace Dnd\Offer\Controller\Adminhtml\Index;
 
@@ -95,17 +90,6 @@ class Save extends \Magento\Backend\App\Action
 
         return $this->resultRedirectFactory->create()->setPath('*/*');
     }
-
-    // private function modifyUseDefaultsData(array &$data)
-    // {
-    //     $useDefaultData = $this->getRequest()->getPostValue('use_default');
-
-    //     foreach ($useDefaultData as $field => $isUseDefault) {
-    //         if ((bool)$isUseDefault === true) {
-    //             $data[$field] = null;
-    //         }
-    //     }
-    // }
 
     /**
      * @param array $formData

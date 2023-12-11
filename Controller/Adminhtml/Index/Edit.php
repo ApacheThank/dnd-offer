@@ -1,9 +1,4 @@
 <?php
-/**
-* @author Amasty Team
-* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
-* @package Cookie Consent (GDPR) for Magento 2
-*/
 
 namespace Dnd\Offer\Controller\Adminhtml\Index;
 
@@ -37,20 +32,13 @@ class Edit extends \Magento\Backend\App\Action
 
         if ($id) {
             $model = $this->offerRepository->get($id);
-            $title = __('Edit Offer %1', $model->getName());
+            $title = __('Edit Offer: %1', $model->getName());
         }
 
         /** @var Page $resultPage */
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
-
-        // if (!$id) {
-        //     $resultPage->getLayout()->unsetElement('store_switcher');
-        // }
-
         $resultPage->setActiveMenu('Dnd_Offer::menu');
-        // $resultPage->addBreadcrumb(__('Cookies'), __('Cookies'));
         $resultPage->getConfig()->getTitle()->prepend($title);
-
         return $resultPage;
     }
 }

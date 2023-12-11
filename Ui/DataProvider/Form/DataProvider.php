@@ -3,7 +3,6 @@ namespace Dnd\Offer\Ui\DataProvider\Form;
  
 use Dnd\Offer\Model\ResourceModel\Offer\CollectionFactory;
 use Magento\Framework\App\Request\DataPersistorInterface;
-use Magento\Ui\DataProvider\Modifier\PoolInterface;
 use Magento\Store\Model\StoreManagerInterface;
 
 class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
@@ -13,27 +12,6 @@ class DataProvider extends \Magento\Ui\DataProvider\ModifierPoolDataProvider
      * @var array
      */
     protected $loadedData;
-    // /**
-    //  * @param string $label
-    //  * @param string $description
-    //  * @param string $imagePath
-    //  * @param CollectionFactory $offerCollectionFactory
-    //  * @param string $offerUrl
-    //  * @param date $dateStart
-    //  * @param date $dateEnd
-    //  */
-    // public function __construct(
-    //     // $label,
-    //     $description,
-    //     $imagePath,
-    //     $offerUrl,
-    //     $dateStart,
-    //     $dateEnd
-    // ) {
-    //     $this->collection = $offerCollectionFactory->create();
-    //     // parent::__construct($label, $description, $imagePath, $offerUrl, $dateStart, $dateEnd);
-    // }
- 
     
     public function __construct(
         $name,

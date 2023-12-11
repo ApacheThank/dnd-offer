@@ -4,10 +4,10 @@
      <resources>
         <resource id="Magento_Backend::admin">
            <resource id="Dnd_Offer::menu" title="Offers" sortOrder="10" >
-              <!-- <resource id="Backend_ControlAcl::create" title="Create" sortOrder="50" />
-              <resource id="Backend_ControlAcl::delete" title="Delete" sortOrder="100" />
-              <resource id="Backend_ControlAcl::view" title="View" sortOrder="150">
-                 <resource id="Backend_ControlAcl::view_additional" title="View Additional Information" sortOrder="10" />
+              <!-- <resource id="Dnd_Offer::create" title="Create" sortOrder="50" />
+              <resource id="Dnd_Offer::delete" title="Delete" sortOrder="100" />
+              <resource id="Dnd_Offer::view" title="View" sortOrder="150">
+                 <resource id="Dnd_Offer::view_additional" title="View Additional Information" sortOrder="10" />
               </resource> -->
            </resource>
         </resource>

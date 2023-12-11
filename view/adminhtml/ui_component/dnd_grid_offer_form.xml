@@ -19,6 +19,7 @@
                 <item name="url" xsi:type="string">*/*/</item>
             </item>
             <!-- <item name="delete" xsi:type="string">Dnd\Offer\Block\Adminhtml\Form\Edit\DeleteButton</item> -->
+            <!-- <item name="saveAndContinue" xsi:type="string">Dnd\Offer\Block\Adminhtml\Form\Edit\SaveAndContinueButton</item> -->
             <item name="save" xsi:type="string">Dnd\Offer\Block\Adminhtml\Form\Edit\SaveButton</item>
         </item>
 
@@ -49,17 +50,6 @@
                 <item name="sortOrder" xsi:type="number">20</item>
             </item>
         </argument>
-        <!-- <field name="id">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Offer Id</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">offers</item>
-                    <item name="dataScope" xsi:type="string">id</item>
-                </item>
-            </argument>
-        </field> -->
         <field name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

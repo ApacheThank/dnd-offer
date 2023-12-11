@@ -188,30 +188,6 @@ class ImageUploader
         $this->allowedExtensions = $allowedExtensions;
     }
 
-    // public function saveMediaImage($imageName, $imagePath)
-    // {
-    //     $baseTmpPath = $this->getBaseTmpPath();
-    //     $basePath = $this->getBasePath();
-    //     $baseImagePath = $this->getFilePath($basePath, $imageName);
-
-    //     $mediaPath = substr($imagePath, 0, strpos($imagePath, "media"));
-    //     $baseTmpImagePath = str_replace($mediaPath . "media/", "", $imagePath);
-
-    //     if ($baseImagePath == $baseTmpImagePath) {
-    //         return $imageName;
-    //     }
-    //     try {
-    //         var_dump($baseTmpImagePath);
-    //         var_dump($baseImagePath);die;
-    //         // $this->mediaDirectory->copyFile($baseTmpImagePath,$baseImagePath);
-    //     } catch (Exception $e) {
-    //         throw new LocalizedException(
-    //             __('Something went wrong while saving the file(s).')
-    //         );
-    //     }
-    //     return $imageName;
-    // }
-
     public function saveMediaImage($imageData)
     {
         try {

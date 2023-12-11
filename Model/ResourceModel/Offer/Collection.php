@@ -8,7 +8,6 @@ use Dnd\Offer\Model\ResourceModel\Offer as OfferResource;
 class Collection extends AbstractCollection
 {
 	protected $_idFieldName = 'id';
-	// protected $_eventPrefix = 'partfinder_garage_vehicle_collection';
 	protected $_eventObject = 'offers_collection';
 
 	/**
