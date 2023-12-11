@@ -2,6 +2,7 @@
   "name": "apachethank/dnd-offer",
   "description": "Dnd offer test, slider with offers on category view",
   "homepage": "https://khasanov.fr",
+  "version":"1.0.0",
   "require": {
     "php": ">=7.4",
     "magento/framework": "103.0.*",
@@ -11,9 +12,7 @@
   },
   "type": "magento2-module",
   "minimum-stability": "dev",
-  "license": [
-    "MIT"
-  ],
+  "license": "MIT",
   "authors": [
     {
       "name": "khasanov",
