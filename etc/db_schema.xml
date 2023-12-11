@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Cookie Consent (GDPR) for Magento 2
+*/-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+<table name="offers" resource="default" engine="innodb" comment="Offers Table">
+    <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="Id"/>
+    <column xsi:type="varchar" name="name" nullable="false" length="225" comment="Offer Name"/>
+    <column xsi:type="text" name="description" nullable="true" comment="Offer Description"/>
+    <column xsi:type="varchar" name="image_path" nullable="false" length="255" comment="Offer Image"/>
+    <column xsi:type="varchar" name="offer_url" nullable="false" length="255" comment="Offer Url"/>
+    <column xsi:type="text" name="category_ids" nullable="true" comment="Categories"/>
+    <column xsi:type="timestamp" name="date_start" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Date Start Offer"/>
+    <column xsi:type="timestamp" name="date_end" on_update="false" nullable="false" comment="Date End Offer"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="id"/>
+    </constraint>
+    <constraint xsi:type="unique" referenceId="OFFERS_NAME">
+      <column name="name"/>
+    </constraint>
+    <!-- <constraint xsi:type="foreign" referenceId="AMASTY_GDPRCOOKIE_COOKIE_GROUP_ID_AMASTY_GDPRCOOKIE_GROUP_ID" table="amasty_gdprcookie_cookie" column="group_id" referenceTable="amasty_gdprcookie_group" referenceColumn="id" onDelete="SET NULL"/> -->
+  </table>
+</schema>

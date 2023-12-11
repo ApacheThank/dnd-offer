@@ -1,0 +1,30 @@
+{
+  "name": "apachethank/dnd-offer",
+  "description": "Dnd offer test, slider with offers on category view",
+  "homepage": "https://khasanov.fr",
+  "require": {
+    "mageplaza/module-core": "^1.3.13"
+  },
+  "type": "magento2-module",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "license": [
+    "MIT"
+  ],
+  "authors": [
+    {
+      "name": "khasanov",
+      "email": "hi@mageplaza.com",
+      "homepage": "https://magento.khasanov.fr",
+      "role": "Leader"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Dnd\\Offer\\": ""
+    }
+  }
+}
