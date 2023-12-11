@@ -3,33 +3,24 @@
 ![](https://img.shields.io/badge/Maintained-yes-gren?style=for-the-badge&logo=magento)
 ![](https://img.shields.io/badge/PHP-7.4.x-blue?style=for-the-badge&logo=php)
 
-<h1 style="text-align: center;">Nanobots DbDumper </h1>
+<h1 style="text-align: center;">DND OFFER - SLIDER OFFERS</h1>
 
-This module was designed simply to create advanced database dumps for Magento 2 Open Source Projects.
-It does work on Adobe Cloud and Adobe Commerce, but you need to download files manually (this
-might be changed in the future releases of this module)
-
-## Ok, But why?
-
-It is very simple! Because we can! But in all seriousness, Magento 2 has been on Market
-a long time and nobody has created a module that out of the box has the following features:
-
-* allow to specify SQL filters on any table (for example to limit the product catalog, 2 examples are part of the module)
-* customer and user admin accounts data anonymization by default
-* junk data is never added to dumps
-
-So, that is why this module was developed.
+This module was created for DND Agence as a test
 
 ## Installation
 
 Installation is via `composer`
 ```
-composer require enanobots/m2-dbdumper
+composer require apachethank/dnd-offer
 ```
 
 After installing the packages just run:
 ```
 php bin/magento setup:upgrade
+php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy
+php bin/magento cache:flush
+
 ```
 
 ### Requirements:
