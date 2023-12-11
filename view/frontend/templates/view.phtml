@@ -2,16 +2,23 @@
 <?php if($offers->count()>0): ?>
 <div class="card-slider no-display">
     <?php foreach ($offers as $offer): ?>
-        <div class="offer-slide">
-            <div class="img">
-                <img src="<?= $block->escapeUrl($this->getImageUrl($offer->getImagePath())) ?>" alt="<?= $block->escapeHtml($offer->getName()) ?>">
-            </div>
-            <div class="offer-content">
-                    <p class="offer-name"><?= $block->escapeHtml($offer->getName()) ?></p>
-                    <p class="offer-description"><?= $block->escapeHtml($offer->getDescription()) ?></p>
-            </div>
-            <div class="btn-content">
-                    <a href="<?= $block->escapeUrl($offer->getOfferUrl()) ?>" class="action primary">En savoir plus</a>
+        <div class="flex items-center justify-center pt-2">
+            <div class="relative ml-18 mr-18 flex max-w-fit flex-row items-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                <div class="relative flex shrink-0 justify-end overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border p-3 text-gray-700">
+                    <img class="h-44 rounded-full" src="<?= $block->escapeUrl($this->getImageUrl($offer->getImagePath())) ?>" alt="<?= $block->escapeHtml($offer->getName()) ?>" />
+                </div>
+                <div class="max-w-fit p-3">
+                    <h2 class="flex font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-red-900 antialiased"><?= $block->escapeHtml($offer->getName()) ?></h2>
+                    <h3 class="text-blue-gray-900 flex font-sans text-2xl font-semibold leading-snug tracking-normal antialiased"><?= $block->escapeHtml($offer->getDescription()) ?></h3>
+                    <a class="flex justify-end" href="<?= $block->escapeUrl($offer->getOfferUrl()) ?>">
+                        <button class="align-items: flex-end flex select-none items-center gap-2 rounded-lg px-6 py-3 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                        En savoir plus
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" class="h-4 w-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+                        </svg>
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
     <?php endforeach; ?>
