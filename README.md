@@ -30,10 +30,12 @@ php bin/magento cache:flush
 ### Tested on:
 * `Magento 2.4.x` OpenSource
 
-# WIKI
-
-This section will describe how the module is designed. So let me start with:
+# Screens
 
 ![Alt text](image-1.png)
+
+
+![Alt text](image-3.png)
+
 
 ![Alt text](image-2.png)
