@@ -3,7 +3,6 @@
   "description": "Dnd offer test, slider with offers on category view",
   "homepage": "https://github.com/ApacheThank/dnd-offer",
   "type": "magento2-module",
-  "version":"1.0.0",
   "license": "MIT",
   "authors": [
     {
