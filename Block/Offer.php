@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Dnd\Offer\Block;
 
@@ -11,15 +11,15 @@ use Magento\Framework\Stdlib\DateTime\DateTime;
 
 class Offer extends \Magento\Framework\View\Element\Template
 {
-    public function __construct( 
-        Context $context,
-        Registry $registry,
-        DateTime $dateTime,
+    public function __construct(
+        Context               $context,
+        Registry              $registry,
+        DateTime              $dateTime,
         StoreManagerInterface $storeManagerInterface,
-        CollectionFactory $collectionFactory,
-        array $data = []
+        CollectionFactory     $collectionFactory,
+        array                 $data = []
     )
-	{
+    {
         parent::__construct($context, $data);
         $this->registry = $registry;
         $this->dateTime = $dateTime;
@@ -29,7 +29,7 @@ class Offer extends \Magento\Framework\View\Element\Template
 
 
     public function getItems()
-    {   
+    {
         $currentDate = $this->dateTime->gmtDate();
         $offerCollection = $this->offerCollection->create();
         $offerCollection->addFieldToFilter('category_ids', ['finset' => $this->getCurrentCategoryId()]);

@@ -12,10 +12,12 @@ use Psr\Log\LoggerInterface;
 
 class Save extends \Magento\Backend\App\Action
 {
+    protected $messageManager;
+
     /**
-     * @var CookieRepository
+     * @var OfferRepository
      */
-    private $cookieRepository;
+    private $offerRepository;
 
     /**
      * @var DataPersistorInterface
@@ -23,9 +25,14 @@ class Save extends \Magento\Backend\App\Action
     private $dataPersistor;
 
     /**
-     * @var CookieFactory
+     * @var OfferFactory
      */
-    private $cookieFactory;
+    private $offerFactory;
+
+    /**
+     * @var ImageUploader
+     */
+    private $imageUploader;
 
     /**
      * @var LoggerInterface
@@ -33,13 +40,14 @@ class Save extends \Magento\Backend\App\Action
     private $logger;
 
     public function __construct(
-        Context $context,
-        OfferRepository $offerRepository,
+        Context                $context,
+        OfferRepository        $offerRepository,
         DataPersistorInterface $dataPersistor,
-        OfferFactory $offerFactory,
-        ImageUploader $imageUploader,
-        LoggerInterface $logger
-    ) {
+        OfferFactory           $offerFactory,
+        ImageUploader          $imageUploader,
+        LoggerInterface        $logger
+    )
+    {
         parent::__construct($context);
         $this->offerRepository = $offerRepository;
         $this->dataPersistor = $dataPersistor;
@@ -58,7 +66,7 @@ class Save extends \Magento\Backend\App\Action
         try {
             $data = $formData;
 
-            $categoryIdsString = implode(',',  $formData['category_ids']);
+            $categoryIdsString = implode(',', $formData['category_ids']);
             $data['category_ids'] = $categoryIdsString;
 
             $model = isset($formData['id'])
@@ -119,31 +127,19 @@ class Save extends \Magento\Backend\App\Action
         $imageData = 'image_path';
         if (isset($data['image_path']) && count($data['image_path'])) {
             $imageData = $data['image_path'][0];
-            if (!file_exists($imageData['tmp_name'])) {
-                $imageData['tmp_name'] = $imageData['path'] . '/' . $imageData['file'];
-            }
+            $imageData['tmp_name'] = $imageData['path'] . '/' . $imageData['file'];
         }
-
+        
         if ($model->getId()) {
             $pageData = $this->offerFactory->create();
             $pageData->load($model->getId());
             if (isset($data['image_path'][0]['name'])) {
-                $imageName1 = $pageData->getThumbnail();
-                $imageName2 = $data['image_path'][0]['name'];
-                if ($imageName1 != $imageName2) {
-                    $imageUrl = $data['image_path'][0]['url'];
-                    $imageName = $data['image_path'][0]['name'];
                     $data['image_path'] = $this->imageUploader->saveMediaImage($imageData);
-                } else {
-                    $data['image_path'] = $data['image_path'][0]['name'];
-                }
             } else {
                 $data['image_path'] = '';
             }
         } else {
             if (isset($data['image_path'][0]['name'])) {
-                $imageUrl = $data['image_path'][0]['url'];
-                $imageName = $data['image_path'][0]['name'];
                 $data['image_path'] = $this->imageUploader->saveMediaImage($imageData);
             }
         }

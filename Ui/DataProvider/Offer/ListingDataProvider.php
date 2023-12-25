@@ -1,4 +1,5 @@
 <?php
+
 namespace Dnd\Offer\Ui\DataProvider\Offer;
 
 

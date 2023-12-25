@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Dnd_Offer::menu" title="Offers" module="Dnd_Offer" action="dnd_offer/index/index" sortOrder="10" resource="Dnd_Offer::menu"/>
+        <add id="Dnd_Offer::menu" title="Offers" module="Dnd_Offer" action="dnd_offer/index/index" sortOrder="10"
+             resource="Dnd_Offer::menu"/>
     </menu>
 </config>

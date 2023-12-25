@@ -1,18 +1,19 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
- <preference for="Dnd\Offer\Api\Data\OfferDataInterface" type="Dnd\Offer\Model\Offer" />
- <preference for="Dnd\Offer\Api\OfferInterface" type="Dnd\Offer\Model\OfferRepository" />
- <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
-  <arguments>
-   <argument name="collections" xsi:type="array">
-     <item name="dnd_grid_offer_listing_data_source" xsi:type="string">DndGridOfferCollection</item> 
-   </argument> 
-  </arguments> 
- </type>
- <virtualType name="DndGridOfferCollection" type="Dnd\Offer\Ui\DataProvider\Offer\Listing\Collection">
-   <arguments>
-     <argument name="mainTable" xsi:type="string">offers</argument>
-     <argument name="resourceModel" xsi:type="string">Dnd\Offer\Model\ResourceModel\Offer</argument> 
-   </arguments> 
- </virtualType>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Dnd\Offer\Api\Data\OfferDataInterface" type="Dnd\Offer\Model\Offer"/>
+    <preference for="Dnd\Offer\Api\OfferInterface" type="Dnd\Offer\Model\OfferRepository"/>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="dnd_grid_offer_listing_data_source" xsi:type="string">DndGridOfferCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="DndGridOfferCollection" type="Dnd\Offer\Ui\DataProvider\Offer\Listing\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">offers</argument>
+            <argument name="resourceModel" xsi:type="string">Dnd\Offer\Model\ResourceModel\Offer</argument>
+        </arguments>
+    </virtualType>
 </config>

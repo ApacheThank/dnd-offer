@@ -15,9 +15,10 @@ class Edit extends \Magento\Backend\App\Action
     private $offerRepository;
 
     public function __construct(
-        Context $context,
+        Context         $context,
         OfferRepository $offerRepository
-    ) {
+    )
+    {
         parent::__construct($context);
         $this->offerRepository = $offerRepository;
     }

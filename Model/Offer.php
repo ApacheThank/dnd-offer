@@ -1,4 +1,5 @@
 <?php
+
 namespace Dnd\Offer\Model;
 
 use Magento\Framework\Model\AbstractModel;
@@ -9,9 +10,9 @@ use Dnd\Offer\Model\ResourceModel;
 
 class Offer extends AbstractModel implements IdentityInterface, OfferDataInterface
 {
-	const CACHE_TAG = 'offers';
+    const CACHE_TAG = 'offers';
 
-	protected function _construct()
+    protected function _construct()
     {
         $this->_init(ResourceModel\Offer::class);
     }
@@ -88,7 +89,7 @@ class Offer extends AbstractModel implements IdentityInterface, OfferDataInterfa
         return $this;
     }
 
-	/**
+    /**
      * @inheritdoc
      */
     public function getOfferUrl()
@@ -106,7 +107,7 @@ class Offer extends AbstractModel implements IdentityInterface, OfferDataInterfa
         return $this;
     }
 
-	/**
+    /**
      * @inheritdoc
      */
     public function getDateStart()
@@ -124,7 +125,7 @@ class Offer extends AbstractModel implements IdentityInterface, OfferDataInterfa
         return $this;
     }
 
-	/**
+    /**
      * @inheritdoc
      */
     public function getDateEnd()
@@ -142,17 +143,17 @@ class Offer extends AbstractModel implements IdentityInterface, OfferDataInterfa
         return $this;
     }
 
-	public function getIdentities()
-	{
-		return [self::CACHE_TAG . '_' . $this->getId()];
-	}
+    public function getIdentities()
+    {
+        return [self::CACHE_TAG . '_' . $this->getId()];
+    }
 
-	public function getDefaultValues()
-	{
-		$values = [];
+    public function getDefaultValues()
+    {
+        $values = [];
 
-		return $values;
-	}
+        return $values;
+    }
 
 
     public function getCategoryIds()

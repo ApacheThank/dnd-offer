@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">dnd_grid_offer_form.dnd_grid_offer_form_data_source</item>
@@ -81,7 +82,7 @@
         </field>
         <field name="image_path" formElement="imageUploader">
             <settings>
-                <label translate="true">Image Uploader Example</label>
+                <label translate="true">Offer Image</label>
                 <componentType>imageUploader</componentType>
             </settings>
             <formElements>
@@ -150,7 +151,8 @@
                 <dataScope>date_end</dataScope>
             </settings>
         </field>
-        <field name="category_ids" component="Magento_Catalog/js/components/new-category" sortOrder="20" formElement="select">
+        <field name="category_ids" component="Magento_Catalog/js/components/new-category" sortOrder="20"
+               formElement="select">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filterOptions" xsi:type="boolean">true</item>

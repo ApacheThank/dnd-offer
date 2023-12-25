@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-        <css src="Dnd_Offer::css/output.css" />
+        <css src="Dnd_Offer::css/output.css"/>
     </head>
     <body>
         <referenceContainer name="columns.top">
-                <block class="Dnd\Offer\Block\Offer" name="category.offer" template="Dnd_Offer::view.phtml" before='-'/>
+            <block class="Dnd\Offer\Block\Offer" name="category.offer" template="Dnd_Offer::view.phtml" before='-'/>
         </referenceContainer>
     </body>
 </page>

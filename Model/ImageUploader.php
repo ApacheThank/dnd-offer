@@ -11,9 +11,9 @@ use Magento\Framework\UrlInterface;
 class ImageUploader
 {
 
-    const BASE_TMP_PATH = "tmp/imageUploader/images";
-    const BASE_PATH = "dnd-offer/images";
-    const ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'png'];
+    const BASE_TMP_PATH = "tmp/imageUploader/images/";
+    const BASE_PATH = "dnd-offer/images/";
+    const ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif'];
 
     /**
      * @var string
@@ -59,11 +59,12 @@ class ImageUploader
      */
     public function __construct(
         \Magento\MediaStorage\Helper\File\Storage\Database $coreFileStorageDatabase,
-        \Magento\Framework\Filesystem $filesystem,
-        \Magento\MediaStorage\Model\File\UploaderFactory $uploaderFactory,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Psr\Log\LoggerInterface $logger
-    ) {
+        \Magento\Framework\Filesystem                      $filesystem,
+        \Magento\MediaStorage\Model\File\UploaderFactory   $uploaderFactory,
+        \Magento\Store\Model\StoreManagerInterface         $storeManager,
+        \Psr\Log\LoggerInterface                           $logger
+    )
+    {
         $this->coreFileStorageDatabase = $coreFileStorageDatabase;
         $this->mediaDirectory = $filesystem->getDirectoryWrite(DirectoryList::MEDIA);
         $this->uploaderFactory = $uploaderFactory;
@@ -139,7 +140,7 @@ class ImageUploader
      * @param $imageName
      * @return string
      */
-    public function getFilePath($path, $imageName)
+    public function getFilePath($path, $imageName):string
     {
         return rtrim($path, '/') . '/' . ltrim($imageName, '/');
     }
@@ -154,14 +155,14 @@ class ImageUploader
     {
         try {
             $fileUploader = $this->uploaderFactory->create(['fileId' => $image_path]);
-            $fileUploader->setAllowedExtensions(['jpg', 'jpeg', 'png']);
+            $fileUploader->setAllowedExtensions($this->getAllowedExtensions());
             $fileUploader->setAllowRenameFiles(true);
             $fileUploader->setAllowCreateFolders(true);
             $fileUploader->setFilesDispersion(false);
             $fileUploader->validateFile();
-            $result = $fileUploader->save($this->mediaDirectory->getAbsolutePath('tmp/imageUploader/images'));
+            $result = $fileUploader->save($this->mediaDirectory->getAbsolutePath(self::BASE_TMP_PATH));
             $result['url'] = $this->storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA)
-                . 'tmp/imageUploader/images/' . ltrim(str_replace('\\', '/', $result['file']), '/');
+                . self::BASE_TMP_PATH . ltrim(str_replace('\\', '/', $result['file']), '/'); 
         } catch (LocalizedException $e) {
             $result = ['errorcode' => 0, 'error' => $e->getMessage()];
         } catch (\Exception $e) {
@@ -192,16 +193,16 @@ class ImageUploader
     {
         try {
             $fileUploader = $this->uploaderFactory->create(['fileId' => $imageData]);
-            $fileUploader->setAllowedExtensions(['jpg', 'jpeg', 'png']);
+            $fileUploader->setAllowedExtensions($this->getAllowedExtensions());
             $fileUploader->setAllowRenameFiles(true);
             $fileUploader->setAllowCreateFolders(true);
             $fileUploader->validateFile();
-            $info = $fileUploader->save($this->mediaDirectory->getAbsolutePath('dnd-offer/images'));
-            return $this->mediaDirectory->getRelativePath('dnd-offer/images') . '/' . $info['file'];
+            $info = $fileUploader->save($this->mediaDirectory->getAbsolutePath(self::BASE_PATH));
+            return $this->mediaDirectory->getRelativePath(self::BASE_PATH) . $info['file'];
         } catch (Exception $e) {
             throw new LocalizedException(
                 __('Something went wrong while saving the file(s).')
             );
-        }        
+        }
     }
 }

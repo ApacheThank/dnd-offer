@@ -1,9 +1,9 @@
 <?php
 /**
-* @author Amasty Team
-* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
-* @package Cookie Consent (GDPR) for Magento 2
-*/
+ * @author Amasty Team
+ * @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+ * @package Cookie Consent (GDPR) for Magento 2
+ */
 
 namespace Dnd\Offer\Block\Adminhtml\Form\Edit;
 
@@ -29,8 +29,9 @@ class DeleteButton implements ButtonProviderInterface
      */
     public function __construct(
         RequestInterface $request,
-        UrlInterface $urlBuilder
-    ) {
+        UrlInterface     $urlBuilder
+    )
+    {
         $this->request = $request;
         $this->urlBuilder = $urlBuilder;
     }

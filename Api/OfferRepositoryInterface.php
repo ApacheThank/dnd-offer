@@ -6,7 +6,7 @@ use Dnd\Offer\Api\Data\OfferDataInterface;
 
 interface OfferRepositoryInterface
 {
-	/**
+    /**
      * @param OfferDataInterface $offer
      */
     public function save(OfferDataInterface $offer);

@@ -11,21 +11,26 @@ use Magento\MediaStorage\Model\File\UploaderFactory;
 use Magento\Store\Model\StoreManagerInterface;
 use Dnd\Offer\Model\ImageUploader;
 
-class Upload extends \Magento\Backend\App\Action 
-{  
+class Upload extends \Magento\Backend\App\Action
+{
     public function __construct(
-      Context $context,
-      ImageUploader $imageUploader
+        Context       $context,
+        ImageUploader $imageUploader
     )
     {
-      parent::__construct($context);
-      $this->imageUploader = $imageUploader;
+        parent::__construct($context);
+        $this->imageUploader = $imageUploader;
     }
-  
+
+    public function _isAllowed()
+    {
+        return $this->_authorization->isAllowed("Vendor_Module::dynamicimage");
+    }
+    
     public function execute()
     {
-      $jsonResult = $this->resultFactory->create(ResultFactory::TYPE_JSON);
-      $result = $this->imageUploader->saveFileToTmpDir('image_path');
-      return $jsonResult->setData($result);
+        $jsonResult = $this->resultFactory->create(ResultFactory::TYPE_JSON);
+        $result = $this->imageUploader->saveFileToTmpDir('image_path');
+        return $jsonResult->setData($result);
     }
-  }
+}

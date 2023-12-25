@@ -11,16 +11,17 @@ use Dnd\Offer\Model\ResourceModel\Offer\CollectionFactory;
 
 class OfferRepository implements OfferRepositoryInterface
 {
-	public function __construct(
+    public function __construct(
         CollectionFactory $offerCollectionFactory,
-        OfferResource $offerResource,
-        OfferFactory $offerFactory,
-		    JsonFactory $jsonFactory
-    ) {
-        $this->offerCollection   = $offerCollectionFactory;
-        $this->offerResource   = $offerResource;
-        $this->offerFactory   = $offerFactory;
-        $this->jsonFactory   = $jsonFactory;
+        OfferResource     $offerResource,
+        OfferFactory      $offerFactory,
+        JsonFactory       $jsonFactory
+    )
+    {
+        $this->offerCollection = $offerCollectionFactory;
+        $this->offerResource = $offerResource;
+        $this->offerFactory = $offerFactory;
+        $this->jsonFactory = $jsonFactory;
     }
 
     /**
@@ -28,7 +29,7 @@ class OfferRepository implements OfferRepositoryInterface
      */
     public function save(OfferDataInterface $offer)
     {
-		    $this->offerResource->save($offer);
+        $this->offerResource->save($offer);
         return $offer;
 
     }
@@ -38,9 +39,9 @@ class OfferRepository implements OfferRepositoryInterface
      */
     public function get(int $offerId)
     {
-		    $offer = $this->offerFactory->create();
+        $offer = $this->offerFactory->create();
         $this->offerResource->load($offer, $offerId);
-        return $offer;  
+        return $offer;
     }
 
     /**
@@ -48,7 +49,7 @@ class OfferRepository implements OfferRepositoryInterface
      */
     public function delete(OfferDataInterface $offer)
     {
-		$this->offerResource->delete($offer);
+        $this->offerResource->delete($offer);
 
     }
 
@@ -57,9 +58,9 @@ class OfferRepository implements OfferRepositoryInterface
      */
     public function deleteById(int $offerId)
     {
-		$offer = $this->offerFactory->create();
-		$this->offerResource->delete($offer,$offerId);
-		return true;
+        $offer = $this->offerFactory->create();
+        $this->offerResource->delete($offer, $offerId);
+        return true;
     }
 
 }
