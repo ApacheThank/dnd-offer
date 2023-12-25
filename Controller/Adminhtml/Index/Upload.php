@@ -24,7 +24,7 @@ class Upload extends \Magento\Backend\App\Action
 
     public function _isAllowed()
     {
-        return $this->_authorization->isAllowed("Vendor_Module::dynamicimage");
+        return $this->_authorization->isAllowed("Dnd_offer::menu");
     }
     
     public function execute()
