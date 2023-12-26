@@ -19,8 +19,7 @@
                 <item name="class" xsi:type="string">back</item>
                 <item name="url" xsi:type="string">*/*/</item>
             </item>
-            <!-- <item name="delete" xsi:type="string">Dnd\Offer\Block\Adminhtml\Form\Edit\DeleteButton</item> -->
-            <!-- <item name="saveAndContinue" xsi:type="string">Dnd\Offer\Block\Adminhtml\Form\Edit\SaveAndContinueButton</item> -->
+            <item name="delete" xsi:type="string">Dnd\Offer\Block\Adminhtml\Form\Edit\DeleteButton</item>
             <item name="save" xsi:type="string">Dnd\Offer\Block\Adminhtml\Form\Edit\SaveButton</item>
         </item>
 

@@ -5,8 +5,6 @@
 
 <h1 style="text-align: center;">DND OFFER - SLIDER OFFERS</h1>
 
-This module was created for DND Agence as a test
-
 ## Installation
 
 Installation is via `composer`

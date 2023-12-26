@@ -59,8 +59,8 @@ class OfferRepository implements OfferRepositoryInterface
     public function deleteById(int $offerId)
     {
         $offer = $this->offerFactory->create();
-        $this->offerResource->delete($offer, $offerId);
-        return true;
+        $this->offerResource->load($offer, $offerId);
+        $this->delete($offer);
     }
 
 }

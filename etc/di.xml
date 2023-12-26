@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Dnd\Offer\Api\Data\OfferDataInterface" type="Dnd\Offer\Model\Offer"/>
-    <preference for="Dnd\Offer\Api\OfferInterface" type="Dnd\Offer\Model\OfferRepository"/>
+    <preference for="Dnd\Offer\Api\OfferRepositoryInterface" type="Dnd\Offer\Model\OfferRepository"/>
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">

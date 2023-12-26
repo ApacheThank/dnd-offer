@@ -56,6 +56,11 @@ class Save extends \Magento\Backend\App\Action
         $this->logger = $logger;
     }
 
+    public function _isAllowed()
+    {
+        return $this->_authorization->isAllowed("Dnd_Offer::menu");
+    }
+
     /**
      * Save action
      */
@@ -78,7 +83,7 @@ class Save extends \Magento\Backend\App\Action
             $model = $this->imageData($model, $data);
             $this->offerRepository->save($model);
             $this->messageManager->addSuccessMessage(__('You saved the item.'));
-
+            
             if ($this->getRequest()->getParam('back')) {
                 return $this->resultRedirectFactory->create()->setPath(
                     '*/*/edit',

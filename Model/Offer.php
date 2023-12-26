@@ -7,7 +7,6 @@ use Magento\Framework\DataObject\IdentityInterface;
 use Dnd\Offer\Api\Data\OfferDataInterface;
 use Dnd\Offer\Model\ResourceModel;
 
-
 class Offer extends AbstractModel implements IdentityInterface, OfferDataInterface
 {
     const CACHE_TAG = 'offers';
