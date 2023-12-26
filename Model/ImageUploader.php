@@ -201,8 +201,9 @@ class ImageUploader
             return $this->mediaDirectory->getRelativePath(self::BASE_PATH) . $info['file'];
         } catch (Exception $e) {
             throw new LocalizedException(
-                __('Something went wrong while saving the file(s).')
+                __('Something went wrong while saving the image.')
             );
+            $this->logger->critical($e);
         }
     }
 }

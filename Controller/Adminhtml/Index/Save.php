@@ -8,6 +8,8 @@ use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Dnd\Offer\Model\ImageUploader;
+use Magento\Framework\Filesystem;
+use Magento\Framework\App\Filesystem\DirectoryList;
 use Psr\Log\LoggerInterface;
 
 class Save extends \Magento\Backend\App\Action
@@ -39,13 +41,19 @@ class Save extends \Magento\Backend\App\Action
      */
     private $logger;
 
+    /**
+     * @var \Magento\Framework\Filesystem\Directory\WriteInterface
+     */
+    private $mediaDirectory;
+
     public function __construct(
         Context                $context,
         OfferRepository        $offerRepository,
         DataPersistorInterface $dataPersistor,
         OfferFactory           $offerFactory,
         ImageUploader          $imageUploader,
-        LoggerInterface        $logger
+        LoggerInterface        $logger,
+        FileSystem             $filesystem,
     )
     {
         parent::__construct($context);
@@ -54,6 +62,8 @@ class Save extends \Magento\Backend\App\Action
         $this->offerFactory = $offerFactory;
         $this->imageUploader = $imageUploader;
         $this->logger = $logger;
+        $this->mediaDirectory = $filesystem->getDirectoryWrite(DirectoryList::MEDIA);
+
     }
 
     public function _isAllowed()
@@ -132,7 +142,11 @@ class Save extends \Magento\Backend\App\Action
         $imageData = 'image_path';
         if (isset($data['image_path']) && count($data['image_path'])) {
             $imageData = $data['image_path'][0];
-            $imageData['tmp_name'] = $imageData['path'] . '/' . $imageData['file'];
+            if (isset($imageData['url']) && !isset($imageData['path'])){
+                $imageData['tmp_name'] = $this->mediaDirectory->getAbsolutePath(\Dnd\Offer\Model\ImageUploader::BASE_PATH). $imageData['name'];
+            } else {
+                $imageData['tmp_name'] = $imageData['path'] . '/' . $imageData['file'];
+            }
         }
         
         if ($model->getId()) {
